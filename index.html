@@ -16,13 +16,26 @@
       height:100vh;
     }
 
+    .wrapper {
+      display:flex;
+      gap:20px;
+    }
+
     .container {
       background:#111;
       padding:30px;
       border-radius:20px;
       text-align:center;
-      width:350px;
+      width:320px;
       box-shadow:0 0 30px rgba(255,0,100,0.3);
+    }
+
+    .side {
+      background:#111;
+      padding:20px;
+      border-radius:20px;
+      width:220px;
+      box-shadow:0 0 20px rgba(0,255,200,0.2);
     }
 
     .avatar {
@@ -83,40 +96,66 @@
       border-radius:50%;
     }
 
+    .side h2 {
+      font-size:16px;
+      margin-bottom:10px;
+      color:#00ffcc;
+    }
+
+    .status {
+      font-size:13px;
+      margin-bottom:8px;
+      color:#aaa;
+    }
+
   </style>
 </head>
 <body>
 
-<div class="container">
-  <img src="https://xatimg.com/image/kErK5bMRoXle.gif" class="avatar">
-  <h1>Área Proibida 🔥</h1>
-  <p>Conteúdo secreto que faz qualquer pessoa ficar OBCECADA por você em minutos</p>
+<div class="wrapper">
 
-  <a href="#" class="btn">Quero Acesso Agora 🔥</a>
-  <a href="#" class="btn">Falar no Privado 💬</a>
+  <!-- COLUNA PRINCIPAL -->
+  <div class="container">
+    <img src="https://xatimg.com/image/kErK5bMRoXle.gif" class="avatar">
+    <h1>Área Proibida 🔥</h1>
+    <p>Conteúdo secreto que faz qualquer pessoa ficar OBCECADA por você em minutos</p>
 
-  <div class="btn" onclick="mostrarAmigos()">Amigos 👥</div>
+    <a href="#" class="btn">Quero Acesso Agora 🔥</a>
+    <a href="#" class="btn">Falar no Privado 💬</a>
 
-  <div id="listaAmigos" class="hidden">
-    <div class="friend">
-      <img src="https://via.placeholder.com/40">
-      <span>Nome do Amigo 1</span>
+    <div class="btn" onclick="mostrarAmigos()">Amigos 👥</div>
+
+    <div id="listaAmigos" class="hidden">
+      <div class="friend">
+        <img src="https://via.placeholder.com/40">
+        <span>Julia entrou agora 🔥</span>
+      </div>
+
+      <div class="friend">
+        <img src="https://via.placeholder.com/40">
+        <span>Carlos VIP</span>
+      </div>
     </div>
+  </div>
 
-    <div class="friend">
-      <img src="https://via.placeholder.com/40">
-      <span>Nome do Amigo 2</span>
-    </div>
+  <!-- SEGUNDA COLUNA -->
+  <div class="side">
+    <h2>🔥 Ao Vivo Agora</h2>
 
-    <!-- DUPLICA ISSO PRA ADICIONAR MAIS -->
-    <!--
-    <div class="friend">
-      <img src="LINK_DA_FOTO">
-      <span>NOME DO AMIGO</span>
-    </div>
-    -->
+    <div class="status">+128 pessoas online</div>
+    <div class="status">Último acesso: agora</div>
+    <div class="status">3 vagas restantes</div>
+
+    <hr style="margin:10px 0; border:0.5px solid #222;">
+
+    <h2>💬 Comentários</h2>
+
+    <div class="status">“Isso funciona mesmo 😳”</div>
+    <div class="status">“Entrei e já vi resultado 🔥”</div>
+    <div class="status">“Não era pra ser tão fácil…”</div>
 
   </div>
+
 </div>
 
 <script>
