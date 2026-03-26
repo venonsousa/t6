@@ -8,9 +8,8 @@
 <style>
 * { margin:0; padding:0; box-sizing:border-box; font-family:Arial; }
 
-/* 🌌 FUNDO + PARTÍCULAS */
 body {
-  background: #000;
+  background:#000;
   color:#fff;
   display:flex;
   justify-content:center;
@@ -28,7 +27,6 @@ body {
   left:0;
 }
 
-/* layout */
 .wrapper { display:flex; gap:20px; z-index:1; }
 
 .container, .side {
@@ -72,7 +70,6 @@ body {
   to { opacity:1; transform:translateX(0); }
 }
 
-/* UI */
 .avatar {
   width:120px;
   height:120px;
@@ -131,17 +128,31 @@ iframe {
   color:#aaa;
   margin-top:10px;
 }
+
+/* 🔻 RODAPÉ */
+.footer {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  z-index: 2;
+}
+
+.footer span {
+  background: linear-gradient(90deg, #ff0066, #00ffcc, #ffcc00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 </style>
 </head>
 
 <body>
 
-<!-- 🌌 PARTICULAS -->
 <div id="particles-js"></div>
 
 <div class="wrapper">
 
-  <!-- PRINCIPAL -->
   <div class="container">
     <img src="https://xatimg.com/image/kErK5bMRoXle.gif" class="avatar">
     <h1 class="gradient-text">iiCarvaozim</h1>
@@ -152,7 +163,6 @@ iframe {
     <div class="btn" onclick="abrirMusicas()">MÚSICAS</div>
   </div>
 
-  <!-- PAINEL -->
   <div class="side" id="painelLateral">
     <div class="fade">
       <h2 class="gradient-text">Painel</h2>
@@ -162,13 +172,16 @@ iframe {
 
 </div>
 
-<!-- 🔥 BIBLIOTECA PARTICULAS -->
+<!-- 🔻 RODAPÉ -->
+<footer class="footer">
+  <span>© 2026 Todos os direitos reservados iiCarvaozim 2026</span><br>
+  Design / Fundos / pcback / Perfils
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
 <script>
-// 🌌 PARTICULAS
 tsParticles.load("particles-js", {
-  background: { color: "transparent" },
   particles: {
     number: { value: 100 },
     color: { value: ["#ff0066","#00ffcc","#ffffff"] },
@@ -183,13 +196,11 @@ tsParticles.load("particles-js", {
   }
 });
 
-// troca conteúdo
 function trocarConteudo(html) {
   document.getElementById('painelLateral').innerHTML =
     `<div class="fade">${html}</div>`;
 }
 
-// BOTÕES
 function abrirAmigos() {
   trocarConteudo(`
     <h2 class="gradient-text">👥 Amigos</h2>
@@ -212,7 +223,6 @@ function abrirChat() {
   `);
 }
 
-// 🎧 PLAYLIST
 function abrirMusicas() {
   trocarConteudo(`
     <h2 class="gradient-text">🎧 Playlist</h2>
