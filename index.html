@@ -6,9 +6,11 @@
 <title>VENON</title>
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:Arial; }
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 
+/* 🚫 bloquear seleção */
 body {
+  user-select: none;
   background:#000;
   color:#fff;
   display:flex;
@@ -18,135 +20,77 @@ body {
   overflow:hidden;
 }
 
-#particles-js {
+#particles-js{
   position:fixed;
   width:100%;
   height:100%;
   z-index:-1;
-  top:0;
-  left:0;
 }
 
-.wrapper { display:flex; gap:20px; z-index:1; }
+/* layout */
+.wrapper{display:flex;gap:20px;z-index:1}
 
-.container, .side {
+.container,.side{
   background:#111;
   border-radius:20px;
-  box-shadow:0 0 25px rgba(0,0,0,0.6);
+  box-shadow:0 0 25px rgba(0,0,0,.6);
 }
 
-.container {
-  padding:30px;
-  width:320px;
-  text-align:center;
-}
+.container{padding:30px;width:320px;text-align:center}
+.side{padding:20px;width:260px}
 
-.side {
-  padding:20px;
-  width:260px;
-}
-
-/* 🎨 GRADIENTE */
-.gradient-text {
-  background: linear-gradient(90deg, #ff0066, #00ffcc, #ffcc00);
+/* 🎨 gradiente */
+.gradient-text{
+  background:linear-gradient(90deg,#ff0066,#00ffcc,#ffcc00);
   background-size:200%;
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  animation: brilho 4s linear infinite;
+  animation:brilho 4s linear infinite;
 }
 
-@keyframes brilho {
-  0% { background-position:0%; }
-  100% { background-position:200%; }
+@keyframes brilho{
+  0%{background-position:0%}
+  100%{background-position:200%}
 }
 
 /* animação */
-.fade {
-  animation:fadeSlide .4s ease;
+.fade{animation:fade .4s ease}
+@keyframes fade{
+  from{opacity:0;transform:translateX(20px)}
+  to{opacity:1;transform:translateX(0)}
 }
 
-@keyframes fadeSlide {
-  from { opacity:0; transform:translateX(20px); }
-  to { opacity:1; transform:translateX(0); }
+.avatar{
+  width:120px;height:120px;border-radius:50%;
+  border:3px solid #ff0066;margin-bottom:15px;
 }
 
-.avatar {
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  border:3px solid #ff0066;
-  margin-bottom:15px;
+.btn{
+  background:#ff0066;padding:12px;margin:10px 0;
+  border-radius:10px;cursor:pointer;transition:.3s
 }
+.btn:hover{background:#ff3385;transform:scale(1.05)}
 
-.btn {
-  background:#ff0066;
-  padding:12px;
-  margin:10px 0;
-  border-radius:10px;
-  cursor:pointer;
-  transition:.3s;
+.friend{
+  display:flex;align-items:center;gap:10px;
+  background:#1a1a1a;padding:8px;border-radius:10px;margin-top:10px
 }
+.friend img{width:40px;height:40px;border-radius:50%}
 
-.btn:hover {
-  background:#ff3385;
-  transform:scale(1.05);
+.player-box{background:#1a1a1a;padding:10px;border-radius:10px;margin-top:10px}
+iframe{width:100%;height:150px;border:none;border-radius:10px}
+
+.status{font-size:13px;color:#aaa;margin-top:10px}
+
+/* rodapé */
+.footer{
+  position:fixed;bottom:10px;width:100%;text-align:center;font-size:12px
 }
-
-.friend {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  background:#1a1a1a;
-  padding:8px;
-  border-radius:10px;
-  margin-top:10px;
-}
-
-.friend img {
-  width:40px;
-  height:40px;
-  border-radius:50%;
-}
-
-/* 🎵 player */
-.player-box {
-  background:#1a1a1a;
-  padding:10px;
-  border-radius:10px;
-  margin-top:10px;
-}
-
-iframe {
-  width:100%;
-  height:150px;
-  border:none;
-  border-radius:10px;
-}
-
-.status {
-  font-size:13px;
-  color:#aaa;
-  margin-top:10px;
-}
-
-/* 🔻 RODAPÉ */
-.footer {
-  position: fixed;
-  bottom: 10px;
-  width: 100%;
-  text-align: center;
-  font-size: 12px;
-  z-index: 2;
-}
-
-.footer a {
-  text-decoration: none;
-}
-
-.footer span {
-  background: linear-gradient(90deg, #ff0066, #00ffcc, #ffcc00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.footer a{text-decoration:none}
+.footer span{
+  background:linear-gradient(90deg,#ff0066,#00ffcc,#ffcc00);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 </style>
 </head>
@@ -156,7 +100,6 @@ iframe {
 <div id="particles-js"></div>
 
 <div class="wrapper">
-
   <div class="container">
     <img src="https://xatimg.com/image/kErK5bMRoXle.gif" class="avatar">
     <h1 class="gradient-text">iiCarvaozim</h1>
@@ -173,81 +116,89 @@ iframe {
       <div class="status">Bem-vindo 🔥</div>
     </div>
   </div>
-
 </div>
 
-<!-- 🔗 RODAPÉ CLICÁVEL -->
 <footer class="footer">
   <a href="https://xat.com/conexaosertanejoo" target="_blank">
     <span>© 2026 Todos os direitos reservados iiCarvaozim 2026</span>
-  </a>
-  <br>
+  </a><br>
   Design / Fundos / pcback / Perfils
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
 <script>
-tsParticles.load("particles-js", {
-  particles: {
-    number: { value: 100 },
-    color: { value: ["#ff0066","#00ffcc","#ffffff"] },
-    links: { enable: true, distance: 120, opacity: 0.2 },
-    move: { enable: true, speed: 1.5 }
-  },
-  interactivity: {
-    events: {
-      onHover: { enable: true, mode: "repulse" },
-      onClick: { enable: true, mode: "push" }
-    }
+// partículas
+tsParticles.load("particles-js",{
+  particles:{
+    number:{value:100},
+    color:{value:["#ff0066","#00ffcc","#fff"]},
+    links:{enable:true,distance:120,opacity:.2},
+    move:{enable:true,speed:1.5}
   }
 });
 
-function trocarConteudo(html) {
-  document.getElementById('painelLateral').innerHTML =
-    `<div class="fade">${html}</div>`;
+// conteúdo
+function trocarConteudo(html){
+  document.getElementById('painelLateral').innerHTML=`<div class="fade">${html}</div>`;
 }
 
-function abrirAmigos() {
-  trocarConteudo(`
-    <h2 class="gradient-text">👥 Amigos</h2>
-    <div class="friend"><img src="https://via.placeholder.com/40"><span>Julia</span></div>
-    <div class="friend"><img src="https://via.placeholder.com/40"><span>Carlos VIP</span></div>
-  `);
+function abrirAmigos(){
+  trocarConteudo(`<h2 class="gradient-text">👥 Amigos</h2>
+  <div class="friend"><img src="https://via.placeholder.com/40"><span>Julia</span></div>
+  <div class="friend"><img src="https://via.placeholder.com/40"><span>Carlos VIP</span></div>`);
 }
 
-function abrirOferta() {
-  trocarConteudo(`
-    <h2 class="gradient-text">🔥 Oferta</h2>
-    <div class="btn" onclick="window.open('https://google.com')">CONTINUAR</div>
-  `);
+function abrirOferta(){
+  trocarConteudo(`<h2 class="gradient-text">🔥 Oferta</h2>
+  <div class="btn" onclick="window.open('https://google.com')">CONTINUAR</div>`);
 }
 
-function abrirChat() {
-  trocarConteudo(`
-    <h2 class="gradient-text">💬 Chat</h2>
-    <div class="status">Respondendo...</div>
-  `);
+function abrirChat(){
+  trocarConteudo(`<h2 class="gradient-text">💬 Chat</h2>
+  <div class="status">Respondendo...</div>`);
 }
 
-function abrirMusicas() {
-  trocarConteudo(`
-    <h2 class="gradient-text">🎧 Playlist</h2>
-
-    <div class="btn" onclick="tocar('https://www.youtube.com/embed/8gyLR4NfMiI')">No Guidance</div>
-    <div class="btn" onclick="tocar('https://www.youtube.com/embed/3OnnDqH6Wj8')">Under The Influence</div>
-    <div class="btn" onclick="tocar('https://www.youtube.com/embed/eJO5HU_7_1w')">With You</div>
-    <div class="btn" onclick="tocar('https://www.youtube.com/embed/0ZV6KpLhV9Q')">Loyal</div>
-
-    <div class="player-box">
-      <iframe id="player"></iframe>
-    </div>
-  `);
+function abrirMusicas(){
+  trocarConteudo(`<h2 class="gradient-text">🎧 Playlist</h2>
+  <div class="btn" onclick="tocar('https://www.youtube.com/embed/8gyLR4NfMiI')">No Guidance</div>
+  <div class="btn" onclick="tocar('https://www.youtube.com/embed/3OnnDqH6Wj8')">Under The Influence</div>
+  <div class="btn" onclick="tocar('https://www.youtube.com/embed/eJO5HU_7_1w')">With You</div>
+  <div class="btn" onclick="tocar('https://www.youtube.com/embed/0ZV6KpLhV9Q')">Loyal</div>
+  <div class="player-box"><iframe id="player"></iframe></div>`);
 }
 
-function tocar(link) {
-  document.getElementById('player').src = link + "?autoplay=1";
+function tocar(link){
+  document.getElementById('player').src=link+"?autoplay=1";
 }
+
+/* 🔒 PROTEÇÃO AVANÇADA */
+
+// botão direito
+document.addEventListener("contextmenu",e=>e.preventDefault());
+
+// teclas
+document.addEventListener("keydown",e=>{
+  if(e.ctrlKey&&["u","s","c","x"].includes(e.key.toLowerCase()))e.preventDefault();
+  if(e.ctrlKey&&e.shiftKey&&["i","j","c"].includes(e.key.toLowerCase()))e.preventDefault();
+  if(e.key==="F12")e.preventDefault();
+});
+
+// devtools detector
+setInterval(()=>{
+  if(window.outerWidth-window.innerWidth>160||window.outerHeight-window.innerHeight>160){
+    document.body.innerHTML="<h1 style='color:red;text-align:center;margin-top:40vh'>🚫 ACESSO BLOQUEADO</h1>";
+  }
+},1000);
+
+// console bloqueado
+console.log=function(){};
+console.warn=function(){};
+console.error=function(){};
+
+// anti debug
+setInterval(function(){debugger;},2000);
+
 </script>
 
 </body>
