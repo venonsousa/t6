@@ -1,162 +1,122 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VENON</title>
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VENON</title>
 
-    body {
-      background: url('https://xatimg.com/image/2z709uX4q7li.gif') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:100vh;
-    }
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif; }
 
-    .wrapper {
-      display:flex;
-      gap:20px;
-      justify-content:center;
-      align-items:center;
-      width:100%;
-    }
+body {
+  background: url('https://xatimg.com/image/2z709uX4q7li.gif') no-repeat center center fixed;
+  background-size: cover;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
 
-    .container {
-      background:#111;
-      padding:30px;
-      border-radius:20px;
-      text-align:center;
-      width:320px;
-      box-shadow:0 0 30px rgba(255,0,100,0.3);
-    }
+.wrapper {
+  display:flex;
+  gap:20px;
+}
 
-    .side {
-      background:#111;
-      padding:20px;
-      border-radius:20px;
-      width:220px;
-      box-shadow:0 0 20px rgba(0,255,200,0.2);
-    }
+.container {
+  background:#111;
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  width:320px;
+  box-shadow:0 0 30px rgba(255,0,100,0.3);
+}
 
-    .avatar {
-      width:120px;
-      height:120px;
-      border-radius:50%;
-      border:3px solid #ff0066;
-      margin-bottom:15px;
-    }
+.side {
+  background:#111;
+  padding:20px;
+  border-radius:20px;
+  width:250px;
+  box-shadow:0 0 20px rgba(0,255,200,0.2);
+}
 
-    h1 {
-      font-size:22px;
-      margin-bottom:10px;
-    }
+.avatar {
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  border:3px solid #ff0066;
+  margin-bottom:15px;
+}
 
-    p {
-      font-size:14px;
-      color:#ccc;
-      margin-bottom:20px;
-    }
+.btn {
+  display:block;
+  background:#ff0066;
+  padding:12px;
+  margin:10px 0;
+  border-radius:10px;
+  cursor:pointer;
+  transition:.3s;
+}
 
-    .btn {
-      display:block;
-      background:#ff0066;
-      color:#fff;
-      padding:12px;
-      margin:10px 0;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:bold;
-      transition:0.3s;
-      cursor:pointer;
-    }
+.btn:hover {
+  background:#ff3385;
+  transform:scale(1.05);
+}
 
-    .btn:hover {
-      background:#ff3385;
-      transform:scale(1.05);
-    }
+.friend {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:#1a1a1a;
+  padding:8px;
+  border-radius:10px;
+  margin-top:10px;
+}
 
-    .hidden {
-      display:none;
-      margin-top:15px;
-    }
+.friend img {
+  width:40px;
+  height:40px;
+  border-radius:50%;
+}
 
-    .friend {
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:#1a1a1a;
-      padding:8px;
-      border-radius:10px;
-      margin-top:10px;
-    }
-
-    .friend img {
-      width:40px;
-      height:40px;
-      border-radius:50%;
-    }
-
-    .side h2 {
-      font-size:16px;
-      margin-bottom:10px;
-      color:#00ffcc;
-    }
-
-    .status {
-      font-size:13px;
-      margin-bottom:8px;
-      color:#aaa;
-    }
-
-  </style>
+.status {
+  font-size:13px;
+  color:#aaa;
+  margin-top:10px;
+}
+</style>
 </head>
+
 <body>
 
 <div class="wrapper">
 
-  <!-- COLUNA PRINCIPAL -->
+  <!-- PRINCIPAL -->
   <div class="container">
     <img src="https://xatimg.com/image/kErK5bMRoXle.gif" class="avatar">
     <h1>iiCarvaozim</h1>
-    <p>tEST0</p>
+    <p>TESTO</p>
 
-    <div class="btn" onclick="abrirOferta()">tEST01</div>
-    <div class="btn" onclick="abrirChat()">tEST02</div>
-
-    <div class="btn" onclick="abrirAmigos()">Amigos </div>
-
-    <div id="listaAmigos" class="hidden">
-      <div class="friend">
-        <img src="https://via.placeholder.com/40">
-        <span>Julia</span>
-      </div>
-
-      <div class="friend">
-        <img src="https://via.placeholder.com/40">
-        <span>Carlos VIP</span>
-      </div>
-    </div>
+    <div class="btn" onclick="abrirOferta()">TEST01</div>
+    <div class="btn" onclick="abrirChat()">TEST02</div>
+    <div class="btn" onclick="abrirAmigos()">Amigos</div>
   </div>
 
-  <!-- SEGUNDA COLUNA -->
+  <!-- PAINEL LATERAL -->
   <div class="side" id="painelLateral">
-    <h2> Painel</h2>
 
-   
-
-     <hr style="margin:10px 0; border:0.5px solid #222;">
-
+    <!-- CONTEÚDO PADRÃO -->
+    <div id="conteudoPadrao">
+      <h2>Painel</h2>
+      <hr style="margin:10px 0; border:0.5px solid #222;">
       <h2>+EU</h2>
-      <div class="status">tEST03</div>
-      <div class="status">“tEST04”</div>
-      <div class="status">“tEST05”</div>
+      <div class="status">TEST03</div>
+      <div class="status">TEST04</div>
+      <div class="status">TEST05</div>
     </div>
 
-    <div id="conteudoAmigos" class="hidden">
+    <!-- AMIGOS -->
+    <div id="conteudoAmigos" style="display:none;">
       <h2>👥 Amigos Online</h2>
 
       <div class="friend">
@@ -170,41 +130,45 @@
       </div>
     </div>
 
-
- 
   </div>
 
 </div>
 
 <script>
-  function abrirAmigos() {
-    document.getElementById('conteudoPadrao').style.display = 'none';
-    document.getElementById('conteudoAmigos').style.display = 'block';
-  }
+
+function limparPainel() {
+  document.getElementById('conteudoPadrao').style.display = 'none';
+  document.getElementById('conteudoAmigos').style.display = 'none';
+
+  let antigo = document.getElementById('conteudoDinamico');
+  if (antigo) antigo.remove();
+}
+
+function abrirAmigos() {
+  limparPainel();
+  document.getElementById('conteudoAmigos').style.display = 'block';
+}
+
 function abrirOferta() {
-    document.getElementById('conteudoPadrao').style.display = 'none';
-    document.getElementById('conteudoAmigos').style.display = 'none';
-    criarConteudo(`🔥 Acesso Liberado<br><br>Você está a um passo de desbloquear tudo...<br><br><b>Clique abaixo para continuar</b>`);
-  }
+  limparPainel();
+  criarConteudo(`🔥 Acesso Liberado<br><br>Você está a um passo de desbloquear tudo...<br><br><b>Clique abaixo para continuar</b>`);
+}
 
-  function abrirChat() {
-    document.getElementById('conteudoPadrao').style.display = 'none';
-    document.getElementById('conteudoAmigos').style.display = 'none';
-    criarConteudo(`💬 Atendimento Privado<br><br>Alguém vai te responder em instantes...<br><br><b>Aguarde ou envie mensagem</b>`);
-  }
+function abrirChat() {
+  limparPainel();
+  criarConteudo(`💬 Atendimento Privado<br><br>Alguém vai te responder em instantes...<br><br><b>Aguarde ou envie mensagem</b>`);
+}
 
-  function criarConteudo(texto) {
-    let painel = document.getElementById('painelLateral');
-    let antigo = document.getElementById('conteudoDinamico');
-    if (antigo) antigo.remove();
+function criarConteudo(texto) {
+  let painel = document.getElementById('painelLateral');
 
-    let div = document.createElement('div');
-    div.id = 'conteudoDinamico';
-    div.className = 'status';
-    div.innerHTML = texto;
+  let div = document.createElement('div');
+  div.id = 'conteudoDinamico';
+  div.className = 'status';
+  div.innerHTML = texto;
 
-    painel.appendChild(div);
-  }
+  painel.appendChild(div);
+}
 
 </script>
 
