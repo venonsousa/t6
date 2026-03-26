@@ -8,7 +8,8 @@
     * { margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif; }
 
     body {
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      background: url('https://xatimg.com/image/2z709uX4q7li.gif') no-repeat center center fixed;
+      background-size: cover;
       color: #fff;
       display:flex;
       justify-content:center;
@@ -120,10 +121,10 @@
     <h1>Área Proibida 🔥</h1>
     <p>Conteúdo secreto que faz qualquer pessoa ficar OBCECADA por você em minutos</p>
 
-    <a href="#" class="btn">Quero Acesso Agora 🔥</a>
-    <a href="#" class="btn">Falar no Privado 💬</a>
+    <div class="btn" onclick="abrirOferta()">Quero Acesso Agora 🔥</div>
+    <div class="btn" onclick="abrirChat()">Falar no Privado 💬</div>
 
-    <div class="btn" onclick="mostrarAmigos()">Amigos 👥</div>
+    <div class="btn" onclick="abrirAmigos()">Amigos 👥</div>
 
     <div id="listaAmigos" class="hidden">
       <div class="friend">
@@ -139,10 +140,37 @@
   </div>
 
   <!-- SEGUNDA COLUNA -->
-  <div class="side">
-    <h2>🔥 Ao Vivo Agora</h2>
+  <div class="side" id="painelLateral">
+    <h2>🔥 Painel</h2>
 
-    <div class="status">+128 pessoas online</div>
+    <div id="conteudoPadrao">
+      <div class="status">+128 pessoas online</div>
+      <div class="status">Último acesso: agora</div>
+      <div class="status">3 vagas restantes</div>
+
+      <hr style="margin:10px 0; border:0.5px solid #222;">
+
+      <h2>💬 Comentários</h2>
+      <div class="status">“Isso funciona mesmo 😳”</div>
+      <div class="status">“Entrei e já vi resultado 🔥”</div>
+      <div class="status">“Não era pra ser tão fácil…”</div>
+    </div>
+
+    <div id="conteudoAmigos" class="hidden">
+      <h2>👥 Amigos Online</h2>
+
+      <div class="friend">
+        <img src="https://via.placeholder.com/40">
+        <span>Julia entrou agora 🔥</span>
+      </div>
+
+      <div class="friend">
+        <img src="https://via.placeholder.com/40">
+        <span>Carlos VIP</span>
+      </div>
+    </div>
+
+  </div>
     <div class="status">Último acesso: agora</div>
     <div class="status">3 vagas restantes</div>
 
@@ -159,10 +187,35 @@
 </div>
 
 <script>
-  function mostrarAmigos() {
-    let lista = document.getElementById('listaAmigos');
-    lista.style.display = lista.style.display === 'block' ? 'none' : 'block';
+  function abrirAmigos() {
+    document.getElementById('conteudoPadrao').style.display = 'none';
+    document.getElementById('conteudoAmigos').style.display = 'block';
   }
+function abrirOferta() {
+    document.getElementById('conteudoPadrao').style.display = 'none';
+    document.getElementById('conteudoAmigos').style.display = 'none';
+    criarConteudo(`🔥 Acesso Liberado<br><br>Você está a um passo de desbloquear tudo...<br><br><b>Clique abaixo para continuar</b>`);
+  }
+
+  function abrirChat() {
+    document.getElementById('conteudoPadrao').style.display = 'none';
+    document.getElementById('conteudoAmigos').style.display = 'none';
+    criarConteudo(`💬 Atendimento Privado<br><br>Alguém vai te responder em instantes...<br><br><b>Aguarde ou envie mensagem</b>`);
+  }
+
+  function criarConteudo(texto) {
+    let painel = document.getElementById('painelLateral');
+    let antigo = document.getElementById('conteudoDinamico');
+    if (antigo) antigo.remove();
+
+    let div = document.createElement('div');
+    div.id = 'conteudoDinamico';
+    div.className = 'status';
+    div.innerHTML = texto;
+
+    painel.appendChild(div);
+  }
+
 </script>
 
 </body>
