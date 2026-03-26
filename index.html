@@ -6,7 +6,7 @@
 <title>VENON</title>
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif; }
+* { margin:0; padding:0; box-sizing:border-box; font-family:Arial; }
 
 body {
   background: url('https://xatimg.com/image/2z709uX4q7li.gif') no-repeat center center fixed;
@@ -18,26 +18,25 @@ body {
   height:100vh;
 }
 
-.wrapper {
-  display:flex;
-  gap:20px;
+.wrapper { display:flex; gap:20px; }
+
+.container, .side {
+  background:#111;
+  border-radius:20px;
+  box-shadow:0 0 25px rgba(0,0,0,0.5);
 }
 
 .container {
-  background:#111;
   padding:30px;
-  border-radius:20px;
-  text-align:center;
   width:320px;
-  box-shadow:0 0 30px rgba(255,0,100,0.3);
+  text-align:center;
 }
 
 .side {
-  background:#111;
   padding:20px;
-  border-radius:20px;
-  width:250px;
-  box-shadow:0 0 20px rgba(0,255,200,0.2);
+  width:260px;
+  overflow:hidden;
+  position:relative;
 }
 
 .avatar {
@@ -49,7 +48,6 @@ body {
 }
 
 .btn {
-  display:block;
   background:#ff0066;
   padding:12px;
   margin:10px 0;
@@ -61,6 +59,22 @@ body {
 .btn:hover {
   background:#ff3385;
   transform:scale(1.05);
+}
+
+/* 🔥 ANIMAÇÃO */
+.fade {
+  animation:fadeSlide .4s ease;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity:0;
+    transform:translateX(20px);
+  }
+  to {
+    opacity:1;
+    transform:translateX(0);
+  }
 }
 
 .friend {
@@ -79,6 +93,14 @@ body {
   border-radius:50%;
 }
 
+iframe {
+  width:100%;
+  height:200px;
+  border:none;
+  border-radius:10px;
+  margin-top:10px;
+}
+
 .status {
   font-size:13px;
   color:#aaa;
@@ -95,79 +117,76 @@ body {
   <div class="container">
     <img src="https://xatimg.com/image/kErK5bMRoXle.gif" class="avatar">
     <h1>iiCarvaozim</h1>
-    <p>TESTO</p>
 
-    <div class="btn" onclick="abrirOferta()">TEST01</div>
-    <div class="btn" onclick="abrirChat()">TEST02</div>
-    <div class="btn" onclick="abrirAmigos()">Amigos</div>
+    <div class="btn" onclick="abrirOferta()">OFERTA</div>
+    <div class="btn" onclick="abrirChat()">CHAT</div>
+    <div class="btn" onclick="abrirAmigos()">AMIGOS</div>
+    <div class="btn" onclick="abrirSite()">SITE</div>
   </div>
 
-  <!-- PAINEL LATERAL -->
+  <!-- PAINEL -->
   <div class="side" id="painelLateral">
-
-    <!-- CONTEÚDO PADRÃO -->
-    <div id="conteudoPadrao">
+    <div id="conteudoPadrao" class="fade">
       <h2>Painel</h2>
-      <hr style="margin:10px 0; border:0.5px solid #222;">
-      <h2>+EU</h2>
-      <div class="status">TEST03</div>
-      <div class="status">TEST04</div>
-      <div class="status">TEST05</div>
+      <div class="status">Bem-vindo 🔥</div>
     </div>
-
-    <!-- AMIGOS -->
-    <div id="conteudoAmigos" style="display:none;">
-      <h2>👥 Amigos Online</h2>
-
-      <div class="friend">
-        <img src="https://via.placeholder.com/40">
-        <span>Julia</span>
-      </div>
-
-      <div class="friend">
-        <img src="https://via.placeholder.com/40">
-        <span>Carlos VIP</span>
-      </div>
-    </div>
-
   </div>
 
 </div>
 
 <script>
 
-function limparPainel() {
-  document.getElementById('conteudoPadrao').style.display = 'none';
-  document.getElementById('conteudoAmigos').style.display = 'none';
+function trocarConteudo(html) {
+  let painel = document.getElementById('painelLateral');
 
-  let antigo = document.getElementById('conteudoDinamico');
-  if (antigo) antigo.remove();
+  painel.innerHTML = `<div class="fade">${html}</div>`;
 }
 
+// 🔥 BOTÕES
+
 function abrirAmigos() {
-  limparPainel();
-  document.getElementById('conteudoAmigos').style.display = 'block';
+  trocarConteudo(`
+    <h2>👥 Amigos</h2>
+
+    <div class="friend">
+      <img src="https://via.placeholder.com/40">
+      <span>Julia</span>
+    </div>
+
+    <div class="friend">
+      <img src="https://via.placeholder.com/40">
+      <span>Carlos VIP</span>
+    </div>
+  `);
 }
 
 function abrirOferta() {
-  limparPainel();
-  criarConteudo(`🔥 Acesso Liberado<br><br>Você está a um passo de desbloquear tudo...<br><br><b>Clique abaixo para continuar</b>`);
+  trocarConteudo(`
+    <h2>🔥 Oferta</h2>
+    <div class="status">
+      Você está a um passo de desbloquear tudo...
+    </div>
+
+    <div class="btn" onclick="window.open('https://google.com')">
+      CONTINUAR
+    </div>
+  `);
 }
 
 function abrirChat() {
-  limparPainel();
-  criarConteudo(`💬 Atendimento Privado<br><br>Alguém vai te responder em instantes...<br><br><b>Aguarde ou envie mensagem</b>`);
+  trocarConteudo(`
+    <h2>💬 Chat</h2>
+    <div class="status">Atendimento em andamento...</div>
+  `);
 }
 
-function criarConteudo(texto) {
-  let painel = document.getElementById('painelLateral');
+// 🔥 CONTEÚDO EXTERNO (IFRAME)
+function abrirSite() {
+  trocarConteudo(`
+    <h2>🌐 Site</h2>
 
-  let div = document.createElement('div');
-  div.id = 'conteudoDinamico';
-  div.className = 'status';
-  div.innerHTML = texto;
-
-  painel.appendChild(div);
+    <iframe src="https://example.com"></iframe>
+  `);
 }
 
 </script>
